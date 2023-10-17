@@ -31,4 +31,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_ippon_training:
     # Config indicated by + and applies to all files under models/
-    +materialized: table
+    +materialized: table  
+    Staging:
+      +materialized: ephemeral
+
+vars:
+  nb_rows_to_show: 3
+
