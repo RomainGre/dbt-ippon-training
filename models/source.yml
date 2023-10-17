@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: new_restaurants
+    database:  DB_DBT_RGREGOIRE_DEV
+    schema: Source  
+    tables:
+      - name: ORDERS
+        description: Orders table
+        columns:
+          - name: identifier
+            tests:
+            - unique 
+            
+              
+      - name: RESTAURANTS

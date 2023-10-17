@@ -1,0 +1,7 @@
+{% test not_null(stg_restaurant_turnover, Turnover) %}
+
+    select *
+    from {{ stg_restaurant_turnover }}
+    where {{ Turnover }} is null
+
+{% endtest %}

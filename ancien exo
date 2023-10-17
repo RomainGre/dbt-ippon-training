@@ -1,0 +1,23 @@
+WITH joined_data AS (
+  SELECT
+    b.Restaurant_Identifier,
+    SUM(b.amount) AS total_amount
+  FROM
+    {{ ref('new_restaurants') }} AS a
+  INNER JOIN
+    {{ ref('new_restaurants') }} AS b
+  ON
+    a.ID = b.Restaurant_Identifier
+  GROUP BY
+    a.Name, b.Restaurant_Identifier
+)
+
+SELECT
+  Name,
+  SUM(total_amount) AS total_order_amount
+FROM
+  joined_data
+GROUP BY
+  Name
+ORDER BY
+  total_order_amount DESC;
