@@ -3,5 +3,6 @@
         {{ ref(sample_name) }}
     {% else %}
         {{ source(source_name, table_name) }}
-    {% endif %}
+    {% endif %} 
+    
 {% endmacro %}
